@@ -1,6 +1,6 @@
-# ================================
-# 1️⃣ Lookup tables
-# ================================
+
+# 1️ Lookup tables
+
 
 BOUNCE_CHEQUES_SCORE = {
     1: 600,
@@ -41,9 +41,8 @@ FRAUD_LITIGATION_SCORE = {
 }
 
 
-# ================================
-# 2️⃣ Weights (same as Excel)
-# ================================
+# 2️ Weights
+
 
 WEIGHTS = {
     "bounce_cheques": 0.20,
@@ -55,9 +54,9 @@ WEIGHTS = {
 }
 
 
-# ================================
-# 3️⃣ COA calculation engine
-# ================================
+
+# 3️ COA calculation engine
+
 
 def calculate_coa_score(inputs):
     total = 0
@@ -72,9 +71,8 @@ def calculate_coa_score(inputs):
     return round(total)
 
 
-# ================================
-# 4️⃣ Terminal input helper
-# ================================
+# 4️ Terminal input helper
+
 
 def get_int_input(prompt, allowed_values):
     while True:
@@ -88,15 +86,15 @@ def get_int_input(prompt, allowed_values):
             print("❌ Please enter a valid integer.")
 
 
-# ================================
-# 5️⃣ Main program (Terminal-based)
-# ================================
+
+# 5️ Main program 
+
 
 if __name__ == "__main__":
 
-    print("\n==============================")
+    
     print(" CONDUCT OF ACCOUNT (COA) SCORE ")
-    print("==============================\n")
+    
 
     user_inputs = {
         "bounce_cheques": get_int_input(
@@ -121,7 +119,6 @@ if __name__ == "__main__":
 
     coa_score = calculate_coa_score(user_inputs)
 
-    print("\n==============================")
     print(" CONDUCT OF ACCOUNT SCORE ")
-    print("==============================")
+    
     print("Score:", coa_score)
