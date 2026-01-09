@@ -2,9 +2,9 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 
-# ================================
-# 1️⃣ Lookup tables
-# ================================
+
+# 1️ Lookup tables
+
 
 BOUNCE_CHEQUES_SCORE = {
     1: 600,
@@ -45,9 +45,9 @@ FRAUD_LITIGATION_SCORE = {
 }
 
 
-# ================================
-# 2️⃣ Weights
-# ================================
+
+# 2️ Weights
+
 
 WEIGHTS = {
     "bounce_cheques": 0.20,
@@ -59,9 +59,9 @@ WEIGHTS = {
 }
 
 
-# ================================
-# 3️⃣ COA calculation engine
-# ================================
+
+# 3️ COA calculation engine
+
 
 def calculate_coa_score(inputs):
     total = 0
@@ -76,9 +76,8 @@ def calculate_coa_score(inputs):
     return round(total)
 
 
-# ================================
-# 4️⃣ FastAPI input schema
-# ================================
+# 4️ FastAPI input schema
+
 
 class COAInput(BaseModel):
     bounce_cheques: int = Field(..., ge=1, le=4)
@@ -93,9 +92,8 @@ class COAOutput(BaseModel):
     coa_score: int
 
 
-# ================================
-# 5️⃣ FastAPI app
-# ================================
+
+# 5️ FastAPI app
 
 app = FastAPI(
     title="COA Scoring API",
